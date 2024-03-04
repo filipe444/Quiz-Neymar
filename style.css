@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: font1;
+    src: url(MonstersHeart-Regular.ttf);
+}
+
+body{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url(https://rare-gallery.com/uploads/posts/552356-Brazilian-Paris.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1{
+    color: white;
+    background-color: rgba(255, 214, 132, 0.517);
+    font-size: 80px;
+    font-family: font1;
+    border-radius: 10px;
+    text-shadow: black -6px 5px 4px, rgb(245, 208, 113) -9px 9px 3px;
+}
+
+.quiz-container{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#pergunta{
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: white;
+    background-color:  rgba(255, 214, 132, 0.517);
+    border-radius: 10px;
+    font-family: cursive;
+    text-shadow: black -4px 4px 4px;
+}
+
+#opcoes{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color:  rgba(199, 160, 82, 0.517);
+    border-radius: 10px;
+}
+
+button{
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.correto{
+    margin-top: 30px;
+    font-size: 35px;
+    background-color: #8bc34a;
+    color: white;
+    border-radius: 10px;
+}
+
+.incorreto{
+    margin-top: 30px;
+    font-size: 35px;
+    background-color: #ff5722;
+    color: white;
+    border-radius: 10px;
+}
+
+.fim{
+    margin-top: 30px;
+    color: aliceblue;
+    background-color:  rgb(105, 98, 83);
+    font-size: 40px;
+    border-radius: 10px;
+
+}
+
+footer{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.614);
+    font-size: 35px;
+    color: white;
+    background-color: rgba(255, 214, 132, 0.517);
+    font-family: font1;
+    border-radius: 10px;
+    text-shadow: black -6px 5px 4px, rgb(245, 208, 113) -9px 9px 3px;
+    margin-inline: 11em;
+    position: static;
+    position: absolute;
+    bottom: 20px;
+}
+
+@media all and (max-width: 780px){
+    footer{
+        margin-top: 40px;
+        font-size: 30px;
+        margin-inline: 0px;
+        position: relative;
+    }
+}

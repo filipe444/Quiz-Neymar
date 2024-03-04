@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Neymar J.R</title>
+</head>
+
+<body>
+
+    <div class="quiz-container">
+        <h1>Quiz - Neymar Jr</h1>
+        <div id="pergunta"></div>
+        <div id="opcoes"></div>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        const perguntas = [
+            {
+                pergunta: "Qual o nome completo de Neymar?",
+                opcoes: ["Neymar da Silva.", "Neymar Silva Santos.", "Neymar Santos Silva.", "Neymar da Silva Santos Júnior.", "Neymar Júnior Santos."],
+                resposta: "Neymar da Silva Santos Júnior."
+            },
+            {
+                pergunta: "Qual a data de nascimento do Neymar?",
+                opcoes: ["5 de agosto de 1992.", "5 de fevereiro de 1992.", "6 de abril de 1992.", "4 de setembro de 1993.", "3 de março de 1991."],
+                resposta: "5 de fevereiro de 1992."
+            },
+            {
+                pergunta: "Qual o nome da irmã do jogador Neymar?",
+                opcoes: ["Sofia.", "Rafaella.", "Luisa.", "Vanessa.", "Julia."],
+                resposta: "Rafaella."
+            },
+            {
+                pergunta: "Qual o número da camisa que Neymar vestia pelo Santos?",
+                opcoes: ["8","9","10","11","7"],
+                resposta: "11"
+            },
+            {
+                pergunta: "Aos 13 anos, Neymar foi para a Europa treinar em um time. Qual era?",
+                opcoes: ["Barcelona.","Chelsea.","Milan.","Real Madrid."],
+                resposta: "Real Madrid."
+            },
+            {
+                pergunta: "Como Neymar é chamado entre a família?",
+                opcoes: ["Ney.","Craque.","Juninho.","Neyzinho.","Ney Ney."],
+                resposta: "Juninho."
+            },
+            {
+                pergunta: "Com quantos anos Neymar começou a jogar?",
+                opcoes: ["10","11","7","6","9"],
+                resposta: "6"
+            },
+            {
+                pergunta: "Chegamos ao fim! Você gostou do Quiz?",
+                opcoes: ["Sim","Não"],
+                resposta: "Sim,Não"
+            }
+        ];
+
+        const perguntaElemento = document.getElementById("pergunta");
+        const opcoesElemento = document.getElementById("opcoes");
+        const resultadoElemento = document.getElementById("resultado");
+
+        let indicePerguntaAtual = 0;
+
+        function carregarPergunta() {
+            const perguntaAtual = perguntas[indicePerguntaAtual];
+            perguntaElemento.textContent = perguntaAtual.pergunta;
+
+            opcoesElemento.innerHTML = "";
+            perguntaAtual.opcoes.forEach(opcao => {
+                const botao = document.createElement("button");
+                botao.textContent = opcao;
+                botao.addEventListener("click", () => verificarResposta(opcao));
+                opcoesElemento.appendChild(botao);
+            });
+        }
+
+        function verificarResposta(respostaSelecionada) {
+            const perguntaAtual = perguntas[indicePerguntaAtual];
+            if (respostaSelecionada === perguntaAtual.resposta) {
+                resultadoElemento.textContent = "Resposta correta!";
+                resultadoElemento.className = "correto";
+            } else {
+                resultadoElemento.textContent = "Resposta incorreta. A resposta correta é: " + perguntaAtual.resposta;
+                resultadoElemento.className = "incorreto";
+            }
+
+            indicePerguntaAtual++;
+            if (indicePerguntaAtual < perguntas.length) {
+                setTimeout(carregarPergunta, 500); //Carrega próxima pergunta após 2 segundos
+            } else {
+                resultadoElemento.textContent = "Agradeçemos pelo seu Feedback!";
+                resultadoElemento.className = "fim";
+            }
+        }
+
+        //Carrega a primeira pergunta quando a página carrega
+        carregarPergunta();
+    </script>
+
+    <footer>Desenvolvido por Filipe Schütz | 2024 &copy;</footer>
+
+</body>
+
+</html>
